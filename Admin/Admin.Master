@@ -1,0 +1,268 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="MarriottLearningGuides.Admin.Admin" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Marriott Learning Guide Admin Tool</title>
+    <link rel="stylesheet" href="../styles/marriott.css" />
+    <script type="text/javascript" src="../jq/csspopup.js"></script>
+    <style type="text/css">
+        .rmText:hover
+        {
+            color: #FFFFFF !important;
+        }
+        .rmLink:hover
+        {
+            color: #FFFFFF !important;
+        }
+        
+        div.RadMenu .rmGroup .rmText {
+            text-align: left;
+        }
+
+        .RadEditor .reContentArea
+        {
+            font-size: 12px !important;
+        }
+
+        .DialogWindow
+        {
+	        z-index: 99999;
+        }
+
+        #RadWindowWrapper_ctl00_ContentPlaceHolder1_rwAddEdit_C_txtName_dialogOpenerLinkManager
+        {
+            z-index: 999999 !important;
+        }
+
+        #RadWindowWrapper_ctl00_ContentPlaceHolder1_rwAddEdit_C_txtName_dialogOpenerInsertLink
+        {
+            z-index: 999999 !important;
+        }
+
+        #RadWindowWrapper_ctl00_ContentPlaceHolder1_rwAddEdit_C_txtName_dialogOpenerFindAndReplace
+        {
+            z-index: 999999 !important;
+        }
+
+        .EditorWindow
+        {
+	        z-index: 999999 !important;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        function EditBulletWindowShow(sender, args) {
+
+            var editor = $find("ctl00_ContentPlaceHolder1_rwAddEdit_C_txtName");
+
+            if (editor != null) {
+                editor.onParentNodeChanged();
+            }
+            
+        }
+
+        /*
+        ''' <summary>
+        ''' This function is called when a selection is changed on the editor
+        ''' </summary>
+        ''' <param name="sender">Sender</param>
+        ''' <param name="eventArgs">Event arguments</param>
+        */
+        function EditorOnClientSelectionChange(sender, eventArgs) {
+
+            var tool = sender.getToolByName("RealFontSize");
+
+            if (tool && $telerik.isIE) {
+                setTimeout(function () {
+                    var value = tool.get_value();
+
+                    switch (value) {
+                        case "1":
+                            value = value.replace("1", "10px");
+                            break;
+                        case "2":
+                            value = value.replace("2", "13px");
+                            break;
+                        case "3":
+                            value = value.replace("3", "16px");
+                            break;
+                        case "4":
+                            value = value.replace("4", "18px");
+                            break;
+                        case "5":
+                            value = value.replace("5", "24px");
+                            break;
+                        case "6":
+                            value = value.replace("6", "32px");
+                            break;
+                        case "7":
+                            value = value.replace("7", "46px");
+                            break;
+                    }
+
+                    tool.set_value(value);
+
+                }, 0);
+            }
+        } //EditorOnClientSelectionChange
+
+        /*
+        ''' <summary>
+        ''' This function is called when a button that posts back but needs a single click is clicked
+        ''' </summary>
+        ''' <param name="sender">Sender</param>
+        ''' <param name="eventArgs">Event arguments</param>
+        */
+        function GenericSingleClickButton_Click(sender, eventArgs) {
+            sender.set_enabled(false);
+            nonAjaxControlId = "";
+        } //GenericSingleClickButton_Click
+
+        /*
+        ''' <summary>
+        ''' This function is called when an AJAX request is starting
+        ''' </summary>
+        ''' <param name="sender">Sender</param>
+        ''' <param name="eventArgs">Event arguments</param>
+        */
+        function OnAjaxRequestStart(sender, eventArgs) {
+            if (eventArgs.get_eventTarget().indexOf("ExportToExcelButton") >= 0) {
+                eventArgs.set_enableAjax(false);
+            }
+
+            if (eventArgs.get_eventTarget().indexOf("ExportToWordButton") >= 0) {
+                eventArgs.set_enableAjax(false);
+            }
+
+            if (eventArgs.get_eventTarget().indexOf("ExportToPdfButton") >= 0) {
+                eventArgs.set_enableAjax(false);
+            }
+        } //OnAjaxRequestStart
+
+        /*
+        ''' <summary>
+        ''' This function is called when an AJAX request is ending
+        ''' </summary>
+        ''' <param name="sender">Sender</param>
+        ''' <param name="eventArgs">Event arguments</param>
+        */
+        function OnAjaxResponseEnd(sender, eventArgs) {
+            
+        } //OnAjaxResponseEnd
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body bgcolor="#e5e3e4" style="font-family: Segoe UI;" id="body" runat="server">
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+			<%--Needed for JavaScript IntelliSense in VS2010--%>
+			<%--For VS2008 replace RadScriptManager with ScriptManager--%>
+			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+		</Scripts>
+    </telerik:RadScriptManager>
+
+    <telerik:RadAjaxManager ClientIDMode="Static" ID="RadAjaxManager1" runat="server">
+	</telerik:RadAjaxManager>
+
+    <script type="text/javascript">
+        window.jQuery = window.$ = $telerik.$;
+    </script>
+
+    <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" EnableEmbeddedSkins="true" Skin="Default" DecoratedControls="all" />
+    
+    <div align="center" style="width:100%;background-color:#e5e3e4;" runat="server" id="divMain">
+        <div style="background: url('../sysimages/backgrnd_grad.jpg'); background-repeat: repeat-x;" id="divGradient" runat="server">
+        <div style="width:960px;background: url('../sysimages/top_bar.jpg'); background-repeat: repeat-x; height:113px;" align="center" id="topBar" runat="server">
+            <div align="center" id="topLogin" runat="server">
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/sysimages/login_logo.png" style="margin-top:59px;" />
+            </div>
+            <div style="width:960px; height:113px;" id="topHome" runat="server">
+                <div style="margin-top:22px; float:left;">
+                    <a href="Home.aspx">
+                        <asp:Image ID="imgLogo" runat="server" ImageUrl="~/sysimages/logo_marriot.png" />
+                    </a>
+                </div>
+                <br />
+                <div style="float:right;">
+                    <div id="divLinks" runat="server" style="margin-top:14px; float:none;">
+                        <div style="float:right; font-size: 12px; font-weight:bold; width:94px;">
+                            <div style="float: right; margin-left: 8px;">
+                                <asp:LinkButton ID="lbLogOut" runat="server" OnClick="lbLogOut_Click" ForeColor="Black" Text="Log-out"></asp:LinkButton>
+                                &nbsp;
+                            </div>
+                            <div style="float: right;">
+                                <img src="../sysimages/exit_16x16.png" alt="Log-out" />
+                            </div>
+                        </div>
+                        <div style="float: right;font-size: 12px; font-weight:bold; width:210px;">
+                            <div style="float: right; margin-left: 8px;">
+                                <asp:LinkButton ID="lbChangeLogOnId" runat="server" OnClick="lbChangeLogOnId_Click" ForeColor="Black" Text="Change Log On Id Or Password"></asp:LinkButton>
+                            </div>
+                            <div style="float: right;">
+                                <img src="../sysimages/businessmen_16x16.png" alt="Log-out" />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div style=" vertical-align:middle;margin-top:16px; margin-right:77px;" id="divMenu" runat="server">
+                        <div>
+                            <telerik:RadMenu ID="rmMain" Skin="Black" runat="server" EnableRoundedCorners="true" EnableShadows="true" Style="z-index: 1">
+                                <Items>
+                                    <telerik:RadMenuItem Text="Home" NavigateUrl="~/Admin/Home.aspx" ImageUrl="~/sysimages/home_16x16.png">
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Home Instructions" NavigateUrl="~/Admin/EditInstructions.aspx" ImageUrl="~/sysimages/document_info_16x16.png"></telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Reports" ImageUrl="~/sysimages/address_book2_16x16.png">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="User Log On Report" NavigateUrl="~/Admin/UserLogOnReport.aspx" ImageUrl="~/sysimages/report_logon_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Usage Report" NavigateUrl="~/Admin/UsageReport.aspx" ImageUrl="~/sysimages/report_usage_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Learning Activity Report" NavigateUrl="~/Admin/LearningActivityReport.aspx" ImageUrl="~/sysimages/report_guide_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Associations Report" NavigateUrl="~/Admin/AssociationsReport.aspx" ImageUrl="~/sysimages/copy_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Link Verifier Report" NavigateUrl="~/Admin/LinkVerifierReport.aspx" ImageUrl="~/sysimages/data_replace_16x16.png"></telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Category" ImageUrl="~/sysimages/cubes_16x16.png">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Position Types" NavigateUrl="~/Admin/ManagePositionTypes.aspx" ImageUrl="~/sysimages/id_card_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Leadership Levels" NavigateUrl="~/Admin/ManageLeadershipLevels.aspx" ImageUrl="~/sysimages/businessman_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Brand Categories" NavigateUrl="~/Admin/ManageBrandCategories.aspx" ImageUrl="~/sysimages/column_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Continents" NavigateUrl="~/Admin/ManageContinents.aspx" ImageUrl="~/sysimages/earth_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Performance Contributions" NavigateUrl="~/Admin/ManagePerformanceContributions.aspx" ImageUrl="~/sysimages/hand_paper_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Competencies" NavigateUrl="~/Admin/ManageCompetencies.aspx" ImageUrl="~/sysimages/signpost_16x16.png"></telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Courses" ImageUrl="~/sysimages/user1_monitor_16x16.png">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Courses" NavigateUrl="~/Admin/ManageCourses.aspx" ImageUrl="~/sysimages/user1_message_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Course Headers" NavigateUrl="~/Admin/ManageInformalCourseHeaders.aspx" ImageUrl="~/sysimages/book_open_16x16.png"></telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Set Course Order" NavigateUrl="~/Admin/OrderCourses.aspx" ImageUrl="~/sysimages/data_replace_16x16.png"></telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                </Items>
+                            </telerik:RadMenu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width:960px; background-color:#F9F9F9;" align="center" id="divContainer" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div style="background-color: #cac8c9; height:34px; display:none;" id="divBottomGradient" runat="server">
+            <asp:Image ID="Image2" runat="server" ImageUrl="~/sysimages/login_gradient.jpg" />
+        </div>
+        </div>
+    </div>
+    <div id="divBottomBar" runat="server" align="center" style="height:54px;">
+        <asp:Image ID="imageBottomBar" runat="server" ImageUrl="~/sysimages/backgrnd_bottomgrad.jpg" />
+    </div>
+    </form>
+</body>
+</html>

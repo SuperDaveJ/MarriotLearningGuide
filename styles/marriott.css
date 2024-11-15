@@ -1,0 +1,438 @@
+@charset "UTF-8";
+/* Marriott Mobile */
+html
+{
+    margin: 0px;
+	padding: 0px;
+}
+
+body 
+{
+    margin: 0px;
+	padding: 0px;
+}
+
+.ui-page {
+background:#f9f9f9;
+}
+
+.Link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #0000ff;
+}
+
+.LinkTermsofUse {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #777777;
+    font-size:14px;
+}
+
+.LinkInformation {
+	font-weight: bold;
+    color: #777777;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+#contentBox {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	top: 158px;
+	width: 1024px;
+	height: 483px;
+	z-index:99;
+	color:#000000;
+	background-color:#cac8c9;
+}
+
+#contentBox2 {
+	font-family:Arial, Helvetica, sans-serif;
+	position:relative;
+	top: 131px;
+	width: 72%;
+	height: 76px;
+	z-index:99;
+	color:#000000;
+}
+
+#contentBox3 {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:706px;
+	margin-left:-41%;
+	top: 17px;
+	width: 276px;
+	height: 482px;
+	z-index:99;
+	color:#000000;
+}
+
+#contentBox4 {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:1013px;
+	margin-left:-41%;
+	top: 12px;
+	width: 276px;
+	height: 482px;
+	z-index:99;
+	color:#000000;
+}
+
+#instructionsBox {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:108px;
+	top: 83px;
+	width: 871px;
+	height: 75px;
+	z-index:99;
+	color:#000000;
+}
+
+#contentBox51 {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:748px;
+	margin-left:-41%;
+	top: 575px;
+	width: 276px;
+	height: 34px;
+	z-index:99;
+	color:#000000;
+}
+
+#contentBox52 {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:741px;
+	margin-left:-41%;
+	top: 506px;
+	width: 276px;
+	height: 34px;
+	z-index:99;
+	color:#000000;
+}
+
+#continueBtn {
+	width: 276px;
+	height: 47px;
+	z-index:10000;
+	color:#000000;
+}
+
+#compList {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	position:absolute;
+	left:25px;
+	top: 358px;
+	width: 295px;
+	height: 283px;
+	z-index:99;
+	color:#000000;
+}
+
+#compArrow {
+	background-image:url(../sysimages/comp-arrow.png);
+	background-repeat:no-repeat;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	width: 700px;
+	height: 116px;
+	z-index:99;
+	color:#FFFFFF;
+}
+
+#compTitle {
+	position:relative;
+	left:40px;
+	top:24px;
+	width:385px;
+}
+
+#contentBox9 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	position:absolute;
+	left:419px;
+	margin-left:-41%;
+	top: 514px;
+	width: 362px;
+	height: 86px;
+	z-index:99;
+	color:#000000;
+}
+
+#subBanner {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	position:absolute;
+	left:40px;
+	top: 218px;
+	width: 1000px;
+	height: 105px;
+	z-index:99;
+	color:#c52c34;
+}
+
+#saveExit {
+	
+}
+
+#backButton {
+		
+}
+
+#contentBox13 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	position:absolute;
+	left:820px;
+	margin-left:-41%;
+	top: 712px;
+	width: 516px;
+	height: 60px;
+	z-index:99;
+	color:#000000;
+}
+
+#backBtn {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	position:absolute;
+	left:902px;
+	top: 208px;
+	width: 126px;
+	height: 60px;
+	z-index:99;
+	color:#000000;
+}
+
+#listContainer {
+	overflow:auto;
+	position:relative;
+	/*height:2000px;*/
+	margin-top:-50px;
+}
+
+#formalList {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	position:absolute;
+	left:55px;
+	top: 0px;
+	width: 90%;
+	height: 304px;
+	z-index:99;
+	color:#000000;
+}
+
+#informalList {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	position:absolute;
+	left:55px;
+	top: 0px;
+	width: 90%;
+	height: 304px;
+	z-index:99;
+	color:#000000;
+}
+
+#buttonContainer {
+	width:544px;
+}
+
+#compContainer {
+	width:768px;
+}
+
+#div {
+	overflow-x: none;
+	overflow-y: auto;
+}
+
+a img { border: none; }
+
+.ui-page { 
+	/*background: #cac8c9;*/
+	background: #f9f9f9;
+}
+
+.ui-mobile-viewport > div
+  {
+    display: none; 
+  }
+  
+.ui-mobile-viewport > div.ui-page-active
+  {
+    display: block;
+  }
+  
+.ui-content {
+    /*min-height: 2000px;*/
+	min-width:600px;
+  }  
+
+#bg_image {
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	z-index:-1;
+    margin: 0px;
+    padding: 0px;
+}
+
+[data-role=page]{height: 100% !important; position:relative !important;}
+
+#pageFooter
+{
+    width:100%;
+    z-index: 100;
+}
+
+.PageHeader {
+	font-size: 18px;
+    color: #000000;
+	font-weight: bold;
+    height: 26px;
+    text-align: left;
+    font-family:Segoe UI Semibold;
+    font-size:19px;
+}
+
+.MenuLevel1Style {
+    background-color: #FFFFFF;
+    font-weight: bold;
+    border: 1px solid #868889;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.MenuLevel2Style {
+    background-color: #FFFFFF;
+    padding: 3px;
+    border: 1px solid #868889; 
+}
+
+#blanket {
+    background-color:#111;
+    opacity: 0.65;
+    filter:alpha(opacity=65);
+    position:absolute;
+    z-index: 9001;
+    top:0px;
+    left:0px;
+    width:100%;
+}
+
+#popUpDiv {
+    position:absolute;
+    background-color:#ffffff;
+    width:550px;
+    height:305px;
+    z-index: 9002;
+    border: 5px solid #36353a;
+    text-align:left;
+}
+
+#popUpDivInner {
+    position:absolute;
+    background-color:#ffffff;
+    width:500px;
+    height:255px;
+    z-index: 9002;
+    padding:25px;
+    text-align:left;
+}
+
+/* external pages (LogOff, SessionTimeout, Maintenance) */
+
+.externalMainDiv
+{
+    text-align: center;
+    margin: 0px auto;
+    height: 700px;
+    width: 1024px;
+}
+
+.externalBackground
+{
+    background-image: url(../sysimages/splash2.jpg);
+    background-repeat: no-repeat;
+    height: 99%;
+    width: 100%;
+}
+
+.externalHeader1
+{
+    margin: 25px 0 25px 25px;
+}
+
+.externalHeader2
+{
+    margin: 25px 0 25px 440px;
+    height: 36px;
+    width: 368px;
+}
+
+.externalMessage
+{
+    padding-top: 220px;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 14px;
+}
+
+.externalMaintMessage
+{
+    margin: 200px auto 0px auto;
+    width: 860px;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 14px;
+    border: 1px solid #000000;
+    background: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+.externalLearningGuide
+{
+    position: absolute;
+    top: 600px;
+    width: 1024px;
+}
+
+/* new homepage layout */
+#header {
+    clear: both;
+}
+        
+#header img {
+    padding-top: 5px;
+}
+
+.nav
+{
+    float: right;
+    margin: 0;
+    padding: 0;
+    
+    }
+    
+.nav ul{
+    margin: 0 10px 0 0;
+    padding: 0;        
+} 
+        
+.nav li {
+    font-size: 12px;
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
